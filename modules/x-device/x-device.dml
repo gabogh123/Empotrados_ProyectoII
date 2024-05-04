@@ -1,0 +1,81 @@
+
+/*
+  © 2016 Intel Corporation
+*/
+
+// This is an incomplete X device module to learn how to translate 
+//specifications to dml code. 
+
+dml 1.4;
+
+device x_device;
+
+param desc = "example X device";
+
+param documentation =
+    "X device incomplete for dml workshop. Find the specification "
+    + "on the documentation";
+
+import "utility.dml";
+
+
+param byte_order = "little-endian";
+
+// Memory-space connection
+connect target_mem_space {
+    param documentation =
+        "The memory space on which the X device operates. Data will be "
+        + "read from and copied to the memory associated with this memory "
+        + "space.";
+    param configuration = "required";
+    interface memory_space;
+}
+
+// DML Workshop
+// Add your code HERE!
+
+
+
+bank DeviceX_Registers {
+    register reg_buffer_size size 8 @ 0x0000 {
+            field size_ @ [63:0];
+        }
+        
+    register reg_data_buffer size 8 @ 0x0008 {
+            field data_buffer @ [63:0];
+        }
+   register reg_address size 8 @ 0x00010 {
+            field ola @ [63:0];
+        }
+    register reg_buffer size 4 @ 0x0018 {
+        field instance_0 @ [7:0];
+        field instance_1 @ [15:8];
+        field instance_2 @ [23:16];
+        field instance_3 @ [31:24];
+    }
+    register cmd size 1 @ 0x001c {
+            field cmd @ [7:0];
+        }
+   register reg_address2 size 8 @ 0x0020 {
+            field output_ @ [63:0];
+        }
+
+}
+
+method behavior() {
+        switch (cmd) {
+            case 0x1:
+                output_ = instance_0 + instance_1;
+                break;
+            case 0x2:
+                output_ = instance_1 - instance_2;
+                break;
+            case 0x4:
+                output_ = instance_2 * instance_3;
+                break;
+            default:
+                // Reserved command handling
+                break;
+        }
+}
+
