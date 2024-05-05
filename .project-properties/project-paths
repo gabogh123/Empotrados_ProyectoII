@@ -1,0 +1,4 @@
+project: /home/gabriel/simics-projects/test
+simics-root: /home/gabriel/Documents/Simics/simics-6.0.185
+simics-model-builder: /home/gabriel/Documents/Simics/simics-6.0.185
+mingw: None
