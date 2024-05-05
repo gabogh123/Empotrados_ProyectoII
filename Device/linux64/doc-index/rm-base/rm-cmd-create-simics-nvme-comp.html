@@ -1,0 +1,66 @@
+<!doctype html>
+<head>
+<meta charset="utf-8">
+<title>create-simics-nvme-comp</title>
+<link rel="stylesheet" href="simics.css">
+<script>function postUrl() {
+    window.parent.postMessage({ content_url: window.location.href }, "*");
+}
+if (window.parent != null && window.parent != window) {
+    postUrl();
+    window.addEventListener("hashchange", function () {
+        postUrl();
+    });
+} else {
+    // Check if we are part of a Simics doc site and redirect if we are
+    fetch("../simics-doc-site-marker", { method: "HEAD" }).then(response => {
+        if (response.ok) {
+            window.location = "..#" + window.location.href;
+        } else {
+            console.info("Not part of a Simics documentation site");
+        }
+    }).catch(error => {
+        console.warn("Failed to check if this is a Simics documentation site:",
+            error);
+    });
+}</script>
+</head>
+<div class="chain">
+<a href="rm-cmd-create-signal-link.html">create-signal-link</a>
+<a href="rm-cmd-create-simple-memory-module.html">create-simple-memory-module</a>
+</div>
+<div class="path">
+<a href="index.html">Simics Reference Manual</a>
+&nbsp;/&nbsp;
+<a href="rm-cmds-chapter.html">3 Commands</a>
+&nbsp;/&nbsp;
+<a href="rm-cmds.html">3.2 Command List</a>
+&nbsp;/&nbsp;</div>
+<a name="create-simics-nvme-comp"></a>
+<h1 id="create-simics-nvme-comp"><a href="#create-simics-nvme-comp">create-simics-nvme-comp</a></h1>
+<section class="doc-item not-numbered not-in-toc">
+<h3 id="synopsis">
+<a href="#synopsis">Synopsis</a>
+</h3>
+<b>create-simics-nvme-comp</b> [<i>"name"</i>] [<i>bandwidth</i>] <i>disk_size</i> <br>
+<h3 id="description">
+<a href="#description">Description</a>
+</h3>
+This command creates a non-instantiated component of the class <tt>simics_nvme_comp</tt>.
+<p>
+The class description for the <tt>simics_nvme_comp</tt> class: A generic NVMe device over PCIe with support for multiple namespaces. Namespaces can be added with the add_namespace command, before instantiating the component.
+</p><p>
+</p><dl><dt id="dt:name-is-optional"><i>name</i> is Optional</dt><dd>If not specified, the component will get a class-specific default name.</dd>
+<p>
+</p><dt id="dt:bandwidth-is-optional"><i>bandwidth</i> is Optional</dt><dd>The read/write speed of the NVMe disk, provided in MB/s. 0 means instant read/write:s, which is the default value</dd>
+<p>
+</p><dt id="dt:disk_size-is-required"><i>disk_size</i> is Required</dt><dd>The size of the underlying storage for the NVMe drive. The combined size of the namespaces added with the add_namespace command must not exceed this value.</dd></dl>
+<h3 id="provided-by">
+<a href="#provided-by">Provided By</a>
+</h3>
+<a href="mod.simics-nvme-comp.html">simics-nvme-comp</a>
+</section>
+<div class="chain">
+<a href="rm-cmd-create-signal-link.html">create-signal-link</a>
+<a href="rm-cmd-create-simple-memory-module.html">create-simple-memory-module</a>
+</div>

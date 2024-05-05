@@ -1,0 +1,224 @@
+{
+  "is_book": false,
+  "anchor": "programming_guides",
+  "file": "index.html",
+  "name": "C++ Device API v2",
+  "headings": [
+    {
+      "level": 1,
+      "anchor": "introduction",
+      "text": "1 Introduction"
+    },
+    {
+      "level": 1,
+      "anchor": "about-the-simics-c-device-api-version-2",
+      "text": "2 About the Simics C++ Device API version 2"
+    },
+    {
+      "level": 2,
+      "anchor": "minimal-requirements",
+      "text": "2.1 Minimal requirements"
+    },
+    {
+      "level": 1,
+      "anchor": "preparations",
+      "text": "3 Preparations"
+    },
+    {
+      "level": 2,
+      "anchor": "designing-the-simics-classes",
+      "text": "3.1 Designing the Simics classes"
+    },
+    {
+      "level": 2,
+      "anchor": "defining-attributes",
+      "text": "3.2 Defining Attributes"
+    },
+    {
+      "level": 3,
+      "anchor": "configuration-attributes",
+      "text": "3.2.1 Configuration Attributes"
+    },
+    {
+      "level": 3,
+      "anchor": "model-state",
+      "text": "3.2.2 Model State"
+    },
+    {
+      "level": 2,
+      "anchor": "interfaces",
+      "text": "3.3 Interfaces"
+    },
+    {
+      "level": 2,
+      "anchor": "register-banks",
+      "text": "3.4 Register Banks"
+    },
+    {
+      "level": 1,
+      "anchor": "simics-modules",
+      "text": "4 Simics Modules"
+    },
+    {
+      "level": 2,
+      "anchor": "module-configuration",
+      "text": "4.1 Module Configuration"
+    },
+    {
+      "level": 1,
+      "anchor": "simics-classes",
+      "text": "5 Simics Classes"
+    },
+    {
+      "level": 2,
+      "anchor": "defining-the-simics-class",
+      "text": "5.1 Defining the Simics Class"
+    },
+    {
+      "level": 1,
+      "anchor": "ports-and-interfaces",
+      "text": "6 Ports and Interfaces"
+    },
+    {
+      "level": 2,
+      "anchor": "interface-declarations",
+      "text": "6.1 Interface declarations"
+    },
+    {
+      "level": 2,
+      "anchor": "interface-method-implementation",
+      "text": "6.2 Interface method implementation"
+    },
+    {
+      "level": 2,
+      "anchor": "interface-registration",
+      "text": "6.3 Interface registration"
+    },
+    {
+      "level": 2,
+      "anchor": "user-defined-interface",
+      "text": "6.4 User defined interface"
+    },
+    {
+      "level": 2,
+      "anchor": "port-registration",
+      "text": "6.5 Port registration"
+    },
+    {
+      "level": 2,
+      "anchor": "methods-collision",
+      "text": "6.6 Methods collision"
+    },
+    {
+      "level": 1,
+      "anchor": "register-banks-2",
+      "text": "7 Register Banks"
+    },
+    {
+      "level": 2,
+      "anchor": "mappableconfobject",
+      "text": "7.1 MappableConfObject"
+    },
+    {
+      "level": 2,
+      "anchor": "bank-port-object",
+      "text": "7.2 Bank Port Object"
+    },
+    {
+      "level": 2,
+      "anchor": "hierarchical-object",
+      "text": "7.3 Hierarchical object"
+    },
+    {
+      "level": 3,
+      "anchor": "bank",
+      "text": "7.3.1 Bank"
+    },
+    {
+      "level": 3,
+      "anchor": "register",
+      "text": "7.3.2 Register"
+    },
+    {
+      "level": 4,
+      "anchor": "register-attribute",
+      "text": "7.3.2.1 Register Attribute"
+    },
+    {
+      "level": 4,
+      "anchor": "not-mapping-addresses-to-registers",
+      "text": "7.3.2.2 Not Mapping Addresses To Registers"
+    },
+    {
+      "level": 3,
+      "anchor": "field",
+      "text": "7.3.3 Field"
+    },
+    {
+      "level": 3,
+      "anchor": "standard-templates",
+      "text": "7.3.4 Standard Templates"
+    },
+    {
+      "level": 4,
+      "anchor": "templates-for-banks",
+      "text": "7.3.4.1 Templates for banks"
+    },
+    {
+      "level": 4,
+      "anchor": "templates-for-registers-and-fields",
+      "text": "7.3.4.2 Templates for registers and fields"
+    },
+    {
+      "level": 2,
+      "anchor": "modeling-the-register-banks",
+      "text": "7.4 Modeling the register banks"
+    },
+    {
+      "level": 3,
+      "anchor": "by-code-when-information-is-provided-by-the-c-classes-and-the-class-hierarchy",
+      "text": "7.4.1 By code; when information is provided by the C++ classes and the class hierarchy"
+    },
+    {
+      "level": 3,
+      "anchor": "by-data-when-information-is-provided-as-a-struct",
+      "text": "7.4.2 By data; when information is provided as a struct"
+    },
+    {
+      "level": 1,
+      "anchor": "attributes",
+      "text": "8 Attributes"
+    },
+    {
+      "level": 2,
+      "anchor": "creating-custom-get-and-set-functions",
+      "text": "8.1 Creating Custom get and set functions"
+    },
+    {
+      "level": 2,
+      "anchor": "calling-interfaces-on-connected-configuration-objects",
+      "text": "8.2 Calling interfaces on connected configuration objects"
+    },
+    {
+      "level": 1,
+      "anchor": "logging",
+      "text": "9 Logging"
+    },
+    {
+      "level": 1,
+      "anchor": "utilities",
+      "text": "10 Utilities"
+    },
+    {
+      "level": 2,
+      "anchor": "generator-of-simics-c-interface-header",
+      "text": "10.1 Generator of Simics C++ interface header"
+    },
+    {
+      "level": 1,
+      "anchor": "migration-guide-from-c-api-v1",
+      "text": "11 Migration Guide from C++ API V1"
+    }
+  ],
+  "children": []
+}
