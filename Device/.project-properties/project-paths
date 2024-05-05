@@ -1,4 +1,4 @@
-project: /home/gabriel/simics-projects/test
+project: /home/gabriel/Documents/GitHub/Empotrados_ProyectoII/Device
 simics-root: /home/gabriel/Documents/Simics/simics-6.0.185
 simics-model-builder: /home/gabriel/Documents/Simics/simics-6.0.185
 mingw: None

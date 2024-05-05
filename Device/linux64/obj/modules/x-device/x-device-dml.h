@@ -475,8 +475,6 @@ typedef _traitref_t write_register;
 typedef _traitref_t init;
 typedef _traitref_t init_val;
 typedef _traitref_t _register;
-typedef _traitref_t _lsb;
-typedef _traitref_t field;
 typedef _traitref_t _connect;
 typedef _traitref_t _interface;
 typedef _traitref_t write_field;
@@ -484,7 +482,9 @@ typedef _traitref_t _reg_or_field;
 typedef _traitref_t read_only;
 typedef _traitref_t post_init;
 typedef _traitref_t device;
+typedef _traitref_t _lsb;
 typedef _traitref_t _set_field;
+typedef _traitref_t field;
 typedef _traitref_t _get_field;
 typedef _traitref_t _write_field;
 typedef _traitref_t read_field;
@@ -710,19 +710,6 @@ struct __register {
     uint64 (*read_unmapped_bits)(x_device_t *arg0, _register arg1, uint64 arg2, void  *arg3);
     void  (*write_unmapped_bits)(x_device_t *arg0, _register arg1, uint64 arg2, uint64 arg3, void  *arg4);
 };
-struct __lsb {
-    uint8 *lsb;
-};
-struct _field {
-    struct __bitsize _bitsize;
-    struct __get _get;
-    struct __lsb _lsb;
-    struct __set _set;
-    struct _init_val init_val;
-    struct _object object;
-    struct _shown_desc shown_desc;
-    _register *reg;
-};
 struct __connect {
     struct __conf_attribute _conf_attribute;
     _each_in_param_t _each_interface;
@@ -757,10 +744,23 @@ struct _device {
     struct _object object;
     struct _post_init post_init;
 };
+struct __lsb {
+    uint8 *lsb;
+};
 struct __set_field {
     struct __bitsize _bitsize;
     struct __lsb _lsb;
     struct _set set;
+};
+struct _field {
+    struct __bitsize _bitsize;
+    struct __get _get;
+    struct __lsb _lsb;
+    struct __set _set;
+    struct _init_val init_val;
+    struct _object object;
+    struct _shown_desc shown_desc;
+    _register *reg;
 };
 struct __get_field {
     struct __bitsize _bitsize;
@@ -1098,25 +1098,775 @@ struct _uint64_cycle_event {
 
 
 
-struct __devstruct_1x_device_1DeviceX_Registers_0cmd {
+struct __devstruct_1x_device_0buffer_0r000 {
     uint64 val;
 };
-struct __devstruct_1x_device_1DeviceX_Registers_1reg_address {
+struct __devstruct_1x_device_0buffer_0r001 {
     uint64 val;
 };
-struct __devstruct_1x_device_1DeviceX_Registers_1reg_address2 {
+struct __devstruct_1x_device_0buffer_0r002 {
     uint64 val;
 };
-struct __devstruct_1x_device_1DeviceX_Registers_1reg_buffer {
+struct __devstruct_1x_device_0buffer_0r003 {
     uint64 val;
 };
-struct __devstruct_1x_device_1DeviceX_Registers_2reg_buffer_size {
+struct __devstruct_1x_device_0buffer_0r004 {
     uint64 val;
 };
-struct __devstruct_1x_device_1DeviceX_Registers_2reg_data_buffer {
+struct __devstruct_1x_device_0buffer_0r005 {
     uint64 val;
 };
-struct __devstruct_1x_device_1DeviceX_Registers {
+struct __devstruct_1x_device_0buffer_0r006 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r007 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r008 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r009 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r010 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r011 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r012 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r013 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r014 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r015 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r016 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r017 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r018 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r019 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r020 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r021 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r022 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r023 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r024 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r025 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r026 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r027 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r028 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r029 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r030 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r031 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r032 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r033 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r034 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r035 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r036 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r037 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r038 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r039 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r040 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r041 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r042 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r043 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r044 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r045 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r046 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r047 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r048 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r049 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r050 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r051 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r052 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r053 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r054 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r055 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r056 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r057 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r058 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r059 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r060 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r061 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r062 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r063 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r064 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r065 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r066 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r067 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r068 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r069 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r070 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r071 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r072 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r073 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r074 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r075 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r076 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r077 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r078 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r079 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r080 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r081 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r082 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r083 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r084 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r085 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r086 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r087 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r088 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r089 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r090 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r091 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r092 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r093 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r094 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r095 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r096 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r097 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r098 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r099 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r100 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r101 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r102 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r103 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r104 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r105 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r106 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r107 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r108 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r109 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r110 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r111 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r112 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r113 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r114 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r115 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r116 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r117 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r118 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r119 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r120 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r121 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r122 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r123 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r124 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r125 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r126 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r127 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r128 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r129 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r130 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r131 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r132 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r133 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r134 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r135 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r136 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r137 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r138 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r139 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r140 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r141 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r142 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r143 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r144 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r145 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r146 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r147 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r148 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r149 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r150 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r151 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r152 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r153 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r154 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r155 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r156 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r157 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r158 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r159 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r160 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r161 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r162 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r163 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r164 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r165 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r166 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r167 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r168 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r169 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r170 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r171 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r172 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r173 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r174 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r175 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r176 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r177 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r178 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r179 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r180 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r181 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r182 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r183 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r184 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r185 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r186 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r187 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r188 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r189 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r190 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r191 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r192 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r193 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r194 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r195 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r196 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r197 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r198 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r199 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r200 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r201 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r202 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r203 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r204 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r205 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r206 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r207 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r208 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r209 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r210 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r211 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r212 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r213 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r214 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r215 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r216 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r217 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r218 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r219 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r220 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r221 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r222 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r223 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r224 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r225 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r226 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r227 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r228 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r229 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r230 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r231 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r232 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r233 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r234 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r235 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r236 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r237 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r238 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r239 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r240 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r241 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r242 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r243 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r244 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r245 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r246 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r247 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r248 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r249 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r250 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r251 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r252 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r253 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r254 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer_0r255 {
+    uint64 val;
+};
+struct __devstruct_1x_device_0buffer {
     conf_object_t *_obj;
     _callback_vect_t _after_read_callbacks;
     _callback_vect_t _after_write_callbacks;
@@ -1124,12 +1874,262 @@ struct __devstruct_1x_device_1DeviceX_Registers {
     _callback_vect_t _before_write_callbacks;
     conf_object_t *_cached_bank_obj;
     _connection_vect_t _connections;
-    struct __devstruct_1x_device_1DeviceX_Registers_0cmd cmd;
-    struct __devstruct_1x_device_1DeviceX_Registers_1reg_address reg_address;
-    struct __devstruct_1x_device_1DeviceX_Registers_1reg_address2 reg_address2;
-    struct __devstruct_1x_device_1DeviceX_Registers_1reg_buffer reg_buffer;
-    struct __devstruct_1x_device_1DeviceX_Registers_2reg_buffer_size reg_buffer_size;
-    struct __devstruct_1x_device_1DeviceX_Registers_2reg_data_buffer reg_data_buffer;
+    struct __devstruct_1x_device_0buffer_0r000 r000;
+    struct __devstruct_1x_device_0buffer_0r001 r001;
+    struct __devstruct_1x_device_0buffer_0r002 r002;
+    struct __devstruct_1x_device_0buffer_0r003 r003;
+    struct __devstruct_1x_device_0buffer_0r004 r004;
+    struct __devstruct_1x_device_0buffer_0r005 r005;
+    struct __devstruct_1x_device_0buffer_0r006 r006;
+    struct __devstruct_1x_device_0buffer_0r007 r007;
+    struct __devstruct_1x_device_0buffer_0r008 r008;
+    struct __devstruct_1x_device_0buffer_0r009 r009;
+    struct __devstruct_1x_device_0buffer_0r010 r010;
+    struct __devstruct_1x_device_0buffer_0r011 r011;
+    struct __devstruct_1x_device_0buffer_0r012 r012;
+    struct __devstruct_1x_device_0buffer_0r013 r013;
+    struct __devstruct_1x_device_0buffer_0r014 r014;
+    struct __devstruct_1x_device_0buffer_0r015 r015;
+    struct __devstruct_1x_device_0buffer_0r016 r016;
+    struct __devstruct_1x_device_0buffer_0r017 r017;
+    struct __devstruct_1x_device_0buffer_0r018 r018;
+    struct __devstruct_1x_device_0buffer_0r019 r019;
+    struct __devstruct_1x_device_0buffer_0r020 r020;
+    struct __devstruct_1x_device_0buffer_0r021 r021;
+    struct __devstruct_1x_device_0buffer_0r022 r022;
+    struct __devstruct_1x_device_0buffer_0r023 r023;
+    struct __devstruct_1x_device_0buffer_0r024 r024;
+    struct __devstruct_1x_device_0buffer_0r025 r025;
+    struct __devstruct_1x_device_0buffer_0r026 r026;
+    struct __devstruct_1x_device_0buffer_0r027 r027;
+    struct __devstruct_1x_device_0buffer_0r028 r028;
+    struct __devstruct_1x_device_0buffer_0r029 r029;
+    struct __devstruct_1x_device_0buffer_0r030 r030;
+    struct __devstruct_1x_device_0buffer_0r031 r031;
+    struct __devstruct_1x_device_0buffer_0r032 r032;
+    struct __devstruct_1x_device_0buffer_0r033 r033;
+    struct __devstruct_1x_device_0buffer_0r034 r034;
+    struct __devstruct_1x_device_0buffer_0r035 r035;
+    struct __devstruct_1x_device_0buffer_0r036 r036;
+    struct __devstruct_1x_device_0buffer_0r037 r037;
+    struct __devstruct_1x_device_0buffer_0r038 r038;
+    struct __devstruct_1x_device_0buffer_0r039 r039;
+    struct __devstruct_1x_device_0buffer_0r040 r040;
+    struct __devstruct_1x_device_0buffer_0r041 r041;
+    struct __devstruct_1x_device_0buffer_0r042 r042;
+    struct __devstruct_1x_device_0buffer_0r043 r043;
+    struct __devstruct_1x_device_0buffer_0r044 r044;
+    struct __devstruct_1x_device_0buffer_0r045 r045;
+    struct __devstruct_1x_device_0buffer_0r046 r046;
+    struct __devstruct_1x_device_0buffer_0r047 r047;
+    struct __devstruct_1x_device_0buffer_0r048 r048;
+    struct __devstruct_1x_device_0buffer_0r049 r049;
+    struct __devstruct_1x_device_0buffer_0r050 r050;
+    struct __devstruct_1x_device_0buffer_0r051 r051;
+    struct __devstruct_1x_device_0buffer_0r052 r052;
+    struct __devstruct_1x_device_0buffer_0r053 r053;
+    struct __devstruct_1x_device_0buffer_0r054 r054;
+    struct __devstruct_1x_device_0buffer_0r055 r055;
+    struct __devstruct_1x_device_0buffer_0r056 r056;
+    struct __devstruct_1x_device_0buffer_0r057 r057;
+    struct __devstruct_1x_device_0buffer_0r058 r058;
+    struct __devstruct_1x_device_0buffer_0r059 r059;
+    struct __devstruct_1x_device_0buffer_0r060 r060;
+    struct __devstruct_1x_device_0buffer_0r061 r061;
+    struct __devstruct_1x_device_0buffer_0r062 r062;
+    struct __devstruct_1x_device_0buffer_0r063 r063;
+    struct __devstruct_1x_device_0buffer_0r064 r064;
+    struct __devstruct_1x_device_0buffer_0r065 r065;
+    struct __devstruct_1x_device_0buffer_0r066 r066;
+    struct __devstruct_1x_device_0buffer_0r067 r067;
+    struct __devstruct_1x_device_0buffer_0r068 r068;
+    struct __devstruct_1x_device_0buffer_0r069 r069;
+    struct __devstruct_1x_device_0buffer_0r070 r070;
+    struct __devstruct_1x_device_0buffer_0r071 r071;
+    struct __devstruct_1x_device_0buffer_0r072 r072;
+    struct __devstruct_1x_device_0buffer_0r073 r073;
+    struct __devstruct_1x_device_0buffer_0r074 r074;
+    struct __devstruct_1x_device_0buffer_0r075 r075;
+    struct __devstruct_1x_device_0buffer_0r076 r076;
+    struct __devstruct_1x_device_0buffer_0r077 r077;
+    struct __devstruct_1x_device_0buffer_0r078 r078;
+    struct __devstruct_1x_device_0buffer_0r079 r079;
+    struct __devstruct_1x_device_0buffer_0r080 r080;
+    struct __devstruct_1x_device_0buffer_0r081 r081;
+    struct __devstruct_1x_device_0buffer_0r082 r082;
+    struct __devstruct_1x_device_0buffer_0r083 r083;
+    struct __devstruct_1x_device_0buffer_0r084 r084;
+    struct __devstruct_1x_device_0buffer_0r085 r085;
+    struct __devstruct_1x_device_0buffer_0r086 r086;
+    struct __devstruct_1x_device_0buffer_0r087 r087;
+    struct __devstruct_1x_device_0buffer_0r088 r088;
+    struct __devstruct_1x_device_0buffer_0r089 r089;
+    struct __devstruct_1x_device_0buffer_0r090 r090;
+    struct __devstruct_1x_device_0buffer_0r091 r091;
+    struct __devstruct_1x_device_0buffer_0r092 r092;
+    struct __devstruct_1x_device_0buffer_0r093 r093;
+    struct __devstruct_1x_device_0buffer_0r094 r094;
+    struct __devstruct_1x_device_0buffer_0r095 r095;
+    struct __devstruct_1x_device_0buffer_0r096 r096;
+    struct __devstruct_1x_device_0buffer_0r097 r097;
+    struct __devstruct_1x_device_0buffer_0r098 r098;
+    struct __devstruct_1x_device_0buffer_0r099 r099;
+    struct __devstruct_1x_device_0buffer_0r100 r100;
+    struct __devstruct_1x_device_0buffer_0r101 r101;
+    struct __devstruct_1x_device_0buffer_0r102 r102;
+    struct __devstruct_1x_device_0buffer_0r103 r103;
+    struct __devstruct_1x_device_0buffer_0r104 r104;
+    struct __devstruct_1x_device_0buffer_0r105 r105;
+    struct __devstruct_1x_device_0buffer_0r106 r106;
+    struct __devstruct_1x_device_0buffer_0r107 r107;
+    struct __devstruct_1x_device_0buffer_0r108 r108;
+    struct __devstruct_1x_device_0buffer_0r109 r109;
+    struct __devstruct_1x_device_0buffer_0r110 r110;
+    struct __devstruct_1x_device_0buffer_0r111 r111;
+    struct __devstruct_1x_device_0buffer_0r112 r112;
+    struct __devstruct_1x_device_0buffer_0r113 r113;
+    struct __devstruct_1x_device_0buffer_0r114 r114;
+    struct __devstruct_1x_device_0buffer_0r115 r115;
+    struct __devstruct_1x_device_0buffer_0r116 r116;
+    struct __devstruct_1x_device_0buffer_0r117 r117;
+    struct __devstruct_1x_device_0buffer_0r118 r118;
+    struct __devstruct_1x_device_0buffer_0r119 r119;
+    struct __devstruct_1x_device_0buffer_0r120 r120;
+    struct __devstruct_1x_device_0buffer_0r121 r121;
+    struct __devstruct_1x_device_0buffer_0r122 r122;
+    struct __devstruct_1x_device_0buffer_0r123 r123;
+    struct __devstruct_1x_device_0buffer_0r124 r124;
+    struct __devstruct_1x_device_0buffer_0r125 r125;
+    struct __devstruct_1x_device_0buffer_0r126 r126;
+    struct __devstruct_1x_device_0buffer_0r127 r127;
+    struct __devstruct_1x_device_0buffer_0r128 r128;
+    struct __devstruct_1x_device_0buffer_0r129 r129;
+    struct __devstruct_1x_device_0buffer_0r130 r130;
+    struct __devstruct_1x_device_0buffer_0r131 r131;
+    struct __devstruct_1x_device_0buffer_0r132 r132;
+    struct __devstruct_1x_device_0buffer_0r133 r133;
+    struct __devstruct_1x_device_0buffer_0r134 r134;
+    struct __devstruct_1x_device_0buffer_0r135 r135;
+    struct __devstruct_1x_device_0buffer_0r136 r136;
+    struct __devstruct_1x_device_0buffer_0r137 r137;
+    struct __devstruct_1x_device_0buffer_0r138 r138;
+    struct __devstruct_1x_device_0buffer_0r139 r139;
+    struct __devstruct_1x_device_0buffer_0r140 r140;
+    struct __devstruct_1x_device_0buffer_0r141 r141;
+    struct __devstruct_1x_device_0buffer_0r142 r142;
+    struct __devstruct_1x_device_0buffer_0r143 r143;
+    struct __devstruct_1x_device_0buffer_0r144 r144;
+    struct __devstruct_1x_device_0buffer_0r145 r145;
+    struct __devstruct_1x_device_0buffer_0r146 r146;
+    struct __devstruct_1x_device_0buffer_0r147 r147;
+    struct __devstruct_1x_device_0buffer_0r148 r148;
+    struct __devstruct_1x_device_0buffer_0r149 r149;
+    struct __devstruct_1x_device_0buffer_0r150 r150;
+    struct __devstruct_1x_device_0buffer_0r151 r151;
+    struct __devstruct_1x_device_0buffer_0r152 r152;
+    struct __devstruct_1x_device_0buffer_0r153 r153;
+    struct __devstruct_1x_device_0buffer_0r154 r154;
+    struct __devstruct_1x_device_0buffer_0r155 r155;
+    struct __devstruct_1x_device_0buffer_0r156 r156;
+    struct __devstruct_1x_device_0buffer_0r157 r157;
+    struct __devstruct_1x_device_0buffer_0r158 r158;
+    struct __devstruct_1x_device_0buffer_0r159 r159;
+    struct __devstruct_1x_device_0buffer_0r160 r160;
+    struct __devstruct_1x_device_0buffer_0r161 r161;
+    struct __devstruct_1x_device_0buffer_0r162 r162;
+    struct __devstruct_1x_device_0buffer_0r163 r163;
+    struct __devstruct_1x_device_0buffer_0r164 r164;
+    struct __devstruct_1x_device_0buffer_0r165 r165;
+    struct __devstruct_1x_device_0buffer_0r166 r166;
+    struct __devstruct_1x_device_0buffer_0r167 r167;
+    struct __devstruct_1x_device_0buffer_0r168 r168;
+    struct __devstruct_1x_device_0buffer_0r169 r169;
+    struct __devstruct_1x_device_0buffer_0r170 r170;
+    struct __devstruct_1x_device_0buffer_0r171 r171;
+    struct __devstruct_1x_device_0buffer_0r172 r172;
+    struct __devstruct_1x_device_0buffer_0r173 r173;
+    struct __devstruct_1x_device_0buffer_0r174 r174;
+    struct __devstruct_1x_device_0buffer_0r175 r175;
+    struct __devstruct_1x_device_0buffer_0r176 r176;
+    struct __devstruct_1x_device_0buffer_0r177 r177;
+    struct __devstruct_1x_device_0buffer_0r178 r178;
+    struct __devstruct_1x_device_0buffer_0r179 r179;
+    struct __devstruct_1x_device_0buffer_0r180 r180;
+    struct __devstruct_1x_device_0buffer_0r181 r181;
+    struct __devstruct_1x_device_0buffer_0r182 r182;
+    struct __devstruct_1x_device_0buffer_0r183 r183;
+    struct __devstruct_1x_device_0buffer_0r184 r184;
+    struct __devstruct_1x_device_0buffer_0r185 r185;
+    struct __devstruct_1x_device_0buffer_0r186 r186;
+    struct __devstruct_1x_device_0buffer_0r187 r187;
+    struct __devstruct_1x_device_0buffer_0r188 r188;
+    struct __devstruct_1x_device_0buffer_0r189 r189;
+    struct __devstruct_1x_device_0buffer_0r190 r190;
+    struct __devstruct_1x_device_0buffer_0r191 r191;
+    struct __devstruct_1x_device_0buffer_0r192 r192;
+    struct __devstruct_1x_device_0buffer_0r193 r193;
+    struct __devstruct_1x_device_0buffer_0r194 r194;
+    struct __devstruct_1x_device_0buffer_0r195 r195;
+    struct __devstruct_1x_device_0buffer_0r196 r196;
+    struct __devstruct_1x_device_0buffer_0r197 r197;
+    struct __devstruct_1x_device_0buffer_0r198 r198;
+    struct __devstruct_1x_device_0buffer_0r199 r199;
+    struct __devstruct_1x_device_0buffer_0r200 r200;
+    struct __devstruct_1x_device_0buffer_0r201 r201;
+    struct __devstruct_1x_device_0buffer_0r202 r202;
+    struct __devstruct_1x_device_0buffer_0r203 r203;
+    struct __devstruct_1x_device_0buffer_0r204 r204;
+    struct __devstruct_1x_device_0buffer_0r205 r205;
+    struct __devstruct_1x_device_0buffer_0r206 r206;
+    struct __devstruct_1x_device_0buffer_0r207 r207;
+    struct __devstruct_1x_device_0buffer_0r208 r208;
+    struct __devstruct_1x_device_0buffer_0r209 r209;
+    struct __devstruct_1x_device_0buffer_0r210 r210;
+    struct __devstruct_1x_device_0buffer_0r211 r211;
+    struct __devstruct_1x_device_0buffer_0r212 r212;
+    struct __devstruct_1x_device_0buffer_0r213 r213;
+    struct __devstruct_1x_device_0buffer_0r214 r214;
+    struct __devstruct_1x_device_0buffer_0r215 r215;
+    struct __devstruct_1x_device_0buffer_0r216 r216;
+    struct __devstruct_1x_device_0buffer_0r217 r217;
+    struct __devstruct_1x_device_0buffer_0r218 r218;
+    struct __devstruct_1x_device_0buffer_0r219 r219;
+    struct __devstruct_1x_device_0buffer_0r220 r220;
+    struct __devstruct_1x_device_0buffer_0r221 r221;
+    struct __devstruct_1x_device_0buffer_0r222 r222;
+    struct __devstruct_1x_device_0buffer_0r223 r223;
+    struct __devstruct_1x_device_0buffer_0r224 r224;
+    struct __devstruct_1x_device_0buffer_0r225 r225;
+    struct __devstruct_1x_device_0buffer_0r226 r226;
+    struct __devstruct_1x_device_0buffer_0r227 r227;
+    struct __devstruct_1x_device_0buffer_0r228 r228;
+    struct __devstruct_1x_device_0buffer_0r229 r229;
+    struct __devstruct_1x_device_0buffer_0r230 r230;
+    struct __devstruct_1x_device_0buffer_0r231 r231;
+    struct __devstruct_1x_device_0buffer_0r232 r232;
+    struct __devstruct_1x_device_0buffer_0r233 r233;
+    struct __devstruct_1x_device_0buffer_0r234 r234;
+    struct __devstruct_1x_device_0buffer_0r235 r235;
+    struct __devstruct_1x_device_0buffer_0r236 r236;
+    struct __devstruct_1x_device_0buffer_0r237 r237;
+    struct __devstruct_1x_device_0buffer_0r238 r238;
+    struct __devstruct_1x_device_0buffer_0r239 r239;
+    struct __devstruct_1x_device_0buffer_0r240 r240;
+    struct __devstruct_1x_device_0buffer_0r241 r241;
+    struct __devstruct_1x_device_0buffer_0r242 r242;
+    struct __devstruct_1x_device_0buffer_0r243 r243;
+    struct __devstruct_1x_device_0buffer_0r244 r244;
+    struct __devstruct_1x_device_0buffer_0r245 r245;
+    struct __devstruct_1x_device_0buffer_0r246 r246;
+    struct __devstruct_1x_device_0buffer_0r247 r247;
+    struct __devstruct_1x_device_0buffer_0r248 r248;
+    struct __devstruct_1x_device_0buffer_0r249 r249;
+    struct __devstruct_1x_device_0buffer_0r250 r250;
+    struct __devstruct_1x_device_0buffer_0r251 r251;
+    struct __devstruct_1x_device_0buffer_0r252 r252;
+    struct __devstruct_1x_device_0buffer_0r253 r253;
+    struct __devstruct_1x_device_0buffer_0r254 r254;
+    struct __devstruct_1x_device_0buffer_0r255 r255;
 };
 struct __devstruct_1x_device_2target_mem_space_1memory_space {
     void const  *val;
@@ -1147,7 +2147,7 @@ struct x_device {
     bool _issuing_state_callbacks;
     dml_qname_cache_t _qname_cache;
     ht_int_table_t _subsequent_log_ht;
-    struct __devstruct_1x_device_1DeviceX_Registers DeviceX_Registers;
+    struct __devstruct_1x_device_0buffer buffer;
     struct __devstruct_1x_device_2target_mem_space target_mem_space;
 };
 // allows generated code to store device struct offsets in uint32,

@@ -8,7 +8,7 @@ RAW_SIMICS_MODEL_BUILDER=/home/gabriel/Documents/Simics/simics-6.0.185
 RAW_EML_PACKAGE=
 RAW_DODOC_PKG=/home/gabriel/Documents/Simics/simics-6.0.185
 
-RAW_SIMICS_PACKAGE_LIST=/home/gabriel/simics-projects/proyecto2-empotrados/.package-list
+RAW_SIMICS_PACKAGE_LIST=/home/gabriel/Documents/Simics/simics-6.0.185/.package-list
 
 INCLUDE_PATHS = /home/gabriel/Documents/Simics/simics-6.0.185/src/include
 CXX_INCLUDE_PATHS = /home/gabriel/Documents/Simics/simics-6.0.185/linux64/api
