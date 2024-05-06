@@ -1,0 +1,13 @@
+Crypto Engine                    1030    6.0.7        (            6275) 2024-01-31
+Docea Base                       7801    6.0.38       (intel.docea:4245)
+OSS Sources                      1020    6.0.53       (            6233)
+Platform: RISC-V CPU             2050    6.0.60       (            6257)
+Platform: RISC-V Simple          2053    6.0.4        (            6233)
+QSP CPU                          8112    6.0.21       (            6274) 2024-01-29
+QSP Clear Linux                  4094    6.0.15       (            6240)
+Quick Start Platform for ISIM    8144    6.0.pre8     (intel.docea:4249)
+Quick-Start Platform             2096    6.0.73       (            6257)
+Simics Base                      1000    6.0.185      (            6275) 2024-01-31
+Simics GDB                       1031    6.0.4        (            6270) 2024-01-08
+Simics Training                  6010    6.0.pre37    (            6272) 2024-01-23
+Viewer                           8126    6.0.17       ( intel.viewer:10)

@@ -1,0 +1,68 @@
+<!doctype html>
+<head>
+<meta charset="utf-8">
+<title>probe_notification_context</title>
+<link rel="stylesheet" href="simics.css">
+<script>function postUrl() {
+    window.parent.postMessage({ content_url: window.location.href }, "*");
+}
+if (window.parent != null && window.parent != window) {
+    postUrl();
+    window.addEventListener("hashchange", function () {
+        postUrl();
+    });
+} else {
+    // Check if we are part of a Simics doc site and redirect if we are
+    fetch("../simics-doc-site-marker", { method: "HEAD" }).then(response => {
+        if (response.ok) {
+            window.location = "..#" + window.location.href;
+        } else {
+            console.info("Not part of a Simics documentation site");
+        }
+    }).catch(error => {
+        console.warn("Failed to check if this is a Simics documentation site:",
+            error);
+    });
+}</script>
+</head>
+<div class="chain">
+<a href="__rm_interface_probe_index.html">probe_index</a>
+<a href="__rm_interface_probe_sampler_cache.html">probe_sampler_cache</a>
+</div>
+<div class="path">
+<a href="index.html">API Reference Manual</a>
+&nbsp;/&nbsp;
+<a href="simulator-to-simulator-interfaces.html">7 Simulator-to-Simulator Interfaces</a>
+&nbsp;/&nbsp;</div>
+<h1 class="jdocu"><a class="not-numbered" name="__rm_interface_probe_notification_context">probe_notification_context</a></h1>
+<p>
+
+<a name="probe_notification_context"></a><a name="probe_notification_context_interface_t"></a></p><dl class="jdocu_di">
+<dt class="jdocu_descitem">Description</dt><dd class="jdocu_descitem">This interface can be used by objects implementing probes, which triggers a
+  notifier for sampling. The interface is suitable if there are multiple
+  notification that triggers before any probe values are read, to distinguish
+  between the different instances.
+<p>
+  In the notifier callback, the <b><i>get</i></b> method should be called by the sampler,
+  to identify the context associated with a certain notifier.
+</p><p>
+  Before the context aware probes are actually read, the corresponding <b><i>set</i></b>
+  method should be called with the same context value as received earlier.
+</p><p>
+  </p><pre class="jdocu_small">SIM_INTERFACE(probe_notification_context) {
+        lang_void *(*get)(conf_object_t *obj);
+        void (*set)(conf_object_t *obj, lang_void *context);
+};
+#define PROBE_NOTIFICATION_CONTEXT_INTERFACE "probe_notification_context"
+</pre><p>
+</p><p>
+  
+</p></dd>
+<dt class="jdocu_descitem">Execution Context</dt><dd class="jdocu_descitem">Execution Context for get method. Global context for set method.
+  
+</dd>
+</dl><p></p>
+<div class="chain">
+<a href="__rm_interface_probe_index.html">probe_index</a>
+<a href="__rm_interface_probe_sampler_cache.html">probe_sampler_cache</a>
+</div>

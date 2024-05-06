@@ -1,0 +1,9 @@
+#!/bin/bash
+# this file will be overwritten by the project setup script
+SIMICS_BASE_PACKAGE="/home/gabriel/Documents/Simics/simics-6.0.185"
+export SIMICS_BASE_PACKAGE
+if [ -f "/home/gabriel/Documents/testmodule/.package-list" ]; then
+    exec "/home/gabriel/Documents/Simics/simics-6.0.185/bin/checkpoint-merge" --package-list "/home/gabriel/Documents/testmodule/.package-list" --project "/home/gabriel/Documents/testmodule" "$@"
+else
+    exec "/home/gabriel/Documents/Simics/simics-6.0.185/bin/checkpoint-merge" --project "/home/gabriel/Documents/testmodule" "$@"
+fi
