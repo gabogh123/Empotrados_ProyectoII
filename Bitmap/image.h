@@ -17,8 +17,13 @@ class Image {
 public:
     Image(int width, int height);
     ~Image();
+
     Color GetColor(int x, int y) const;
     void SetColor(const Color& color, int x, int y);
+
+    void Read(const char* path);
+    void ReadAndPrintHex(const char* path);
+    void SaveHexToFile(const char* inputPath, const char* outputPath);
     void Export(const char* path) const;
 
 private:

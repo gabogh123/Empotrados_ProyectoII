@@ -5,6 +5,7 @@
 #include "image.h"
 
 #include <iostream>
+#include <iomanip> 
 #include <fstream>
 
 Color::Color()
@@ -39,6 +40,172 @@ void Image::SetColor(const Color& color, int x, int y) {
     m_colors[y * m_width + x].g = color.g;
     m_colors[y * m_width + x].b = color.b;
 }
+
+void Image::Read(const char* path) {
+    std::ifstream f;
+    f.open(path, std::ios::in | std::ios::binary);
+
+    std::cout << "Opening file..." << std::endl;
+
+    if (!f.is_open()) {
+        std::cout << "File could not be opened" << std::endl;
+        return;
+    }
+
+    const int fileHeaderSize = 14;
+    const int informationHeaderSize = 40;
+    unsigned char fileHeader[fileHeaderSize];
+    unsigned char informationHeader[informationHeaderSize];
+
+    // Read file header
+    f.read(reinterpret_cast<char*>(fileHeader), fileHeaderSize);
+    if (f.gcount() != fileHeaderSize) {
+        std::cout << "Failed to read the file header." << std::endl;
+        return;
+    }
+
+    // Print file header in hex
+    std::cout << "File Header: ";
+    for (int i = 0; i < fileHeaderSize; ++i) {
+        std::cout << std::hex << +fileHeader[i] << " ";
+    }
+    std::cout << std::dec << std::endl; // Switch back to decimal for regular outputs
+
+    // Read information header
+    f.read(reinterpret_cast<char*>(informationHeader), informationHeaderSize);
+    if (f.gcount() != informationHeaderSize) {
+        std::cout << "Failed to read the information header." << std::endl;
+        return;
+    }
+
+    // Print information header in hex
+    std::cout << "Information Header: ";
+    for (int i = 0; i < informationHeaderSize; ++i) {
+        std::cout << std::hex << +informationHeader[i] << " ";
+    }
+    std::cout << std::dec << std::endl; // Switch back to decimal
+
+    // Checks if the image is of bitmap format
+    if (fileHeader[0] != 'B' || fileHeader[1] != 'M') {
+        std::cout << "The specified path is not a bitmap image" << std::endl;
+        f.close();
+        return;
+    }
+
+    // Print file size in dec
+    std::cout << "File size: ";
+    int fileSize = fileHeader[2] + (fileHeader[3] << 8) + (fileHeader[4] << 16) + (fileHeader[5] << 24);
+    std::cout << fileSize << " bytes" << std::endl;
+
+    // Print image dimentions in dec
+    std::cout << "Dimentions: ";
+    m_width = informationHeader[4] + (informationHeader[5] << 8) + (informationHeader[6] << 16) + (informationHeader[7] << 24);
+    m_height = informationHeader[8] + (informationHeader[9] << 8) + (informationHeader[10] << 16) + (informationHeader[11] << 24);
+    std::cout << m_width << "x" << m_height << std::endl;
+
+    m_colors.resize(m_width * m_height);
+
+    const int paddingAmount = ((4 - (m_width * 3) % 4) % 4);
+
+    for (int y = 0; y < m_height; y++) {
+        for (int x = 0; x < m_width; x++) {
+            unsigned char color[3];
+            f.read(reinterpret_cast<char*>(color), 3);
+            m_colors[y * m_width + x].r = static_cast<float>(color[2]) / 255.0f;
+            m_colors[y * m_width + x].g = static_cast<float>(color[1]) / 255.0f;
+            m_colors[y * m_width + x].b = static_cast<float>(color[0]) / 255.0f;
+        }
+        f.ignore(paddingAmount);
+    }
+
+    f.close();
+
+    std::cout << "File read" << std::endl;
+
+}
+
+void Image::ReadAndPrintHex(const char* path) {
+    std::ifstream f;
+    f.open(path, std::ios::in | std::ios::binary);
+
+    if (!f.is_open()) {
+        std::cout << "File could not be opened" << std::endl;
+        return;
+    }
+
+    std::cout << "File opened successfully. Reading file..." << std::endl;
+
+    // Check if it's a BMP file by reading the first two bytes
+    char type[2];
+    f.read(type, 2);
+    if (type[0] != 'B' || type[1] != 'M') {
+        std::cout << "The specified file is not a BMP image." << std::endl;
+        f.close();
+        return;
+    }
+    std::cout << "BMP Header: " << std::hex << +type[0] << " " << +type[1] << " " << std::endl;;
+
+    // Reset stream to beginning
+    f.seekg(0, std::ios::beg);
+
+    // Read the entire file into memory
+    std::vector<unsigned char> buffer(std::istreambuf_iterator<char>(f), {});
+
+    // Print the entire file in hex format
+    std::cout << "Complete file in hex:" << std::endl;
+    for (size_t i = 0; i < buffer.size(); i++) {
+        std::cout << std::hex << std::setw(2) << std::setfill('0') << +buffer[i] << " ";
+        if ((i + 1) % 16 == 0) { // Print 16 bytes per line
+            std::cout << std::endl;
+        }
+    }
+    std::cout << std::dec << std::endl; // Switch back to decimal for regular outputs
+
+    f.close();
+}
+
+void Image::SaveHexToFile(const char* inputPath, const char* outputPath) {
+    std::ifstream f;
+    f.open(inputPath, std::ios::in | std::ios::binary);
+
+    if (!f.is_open()) {
+        std::cout << "Input file could not be opened" << std::endl;
+        return;
+    }
+
+    // Open output file for writing
+    std::ofstream out;
+    out.open(outputPath);
+
+    if (!out.is_open()) {
+        std::cout << "Output file could not be opened" << std::endl;
+        f.close();
+        return;
+    }
+
+    // Read the entire file into memory
+    std::vector<unsigned char> buffer(std::istreambuf_iterator<char>(f), {});
+
+    // Write the entire file in hex format to the output file
+    for (size_t i = 0; i < buffer.size(); i++) {
+        if ((i) % 4 == 0) { // Write 4 bytes per line
+            out << "set-device-reg icd.buffer.buffer";
+            out << std::dec; // Switch back to decimal for regular outputs
+            out << std::setw(3) << std::setfill('0') << i/4 << " " << "0x";
+        }
+        out << std::hex << std::setw(2) << std::setfill('0') << +buffer[i];
+        if ((i + 1) % 4 == 0) { // Write 4 bytes per line
+            out << std::endl;
+        }
+    }
+
+    // Close files
+    f.close();
+    out.close();
+
+    std::cout << "Hexadecimal data has been saved to " << outputPath << std::endl;
+}
+
 
 void Image::Export(const char* path) const {
     std::ofstream f;
