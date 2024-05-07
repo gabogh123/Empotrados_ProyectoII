@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<device name="image_capturing_device" bitorder="le">
-  <bank name="buffer">
-  </bank>
-  <bank name="registers">
-  </bank>
-</device>

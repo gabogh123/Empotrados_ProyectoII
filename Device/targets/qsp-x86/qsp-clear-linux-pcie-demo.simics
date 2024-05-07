@@ -1,3 +1,0 @@
-# Auto-generated file. Any changes will be overwritten!
-decl { substitute "/home/gabriel/Documents/Simics/simics-6.0.185/../simics-qsp-x86-6.0.73/targets/qsp-x86/qsp-clear-linux-pcie-demo.simics" }
-run-command-file "/home/gabriel/Documents/Simics/simics-6.0.185/../simics-qsp-x86-6.0.73/targets/qsp-x86/qsp-clear-linux-pcie-demo.simics"

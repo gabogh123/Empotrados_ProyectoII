@@ -1,3 +1,0 @@
-# Auto-generated file. Any changes will be overwritten!
-decl { substitute "/home/gabriel/Documents/Simics/simics-6.0.185/../simics-training-6.0.pre37/targets/workshop-02/007-prep-system-benchmarking.simics" }
-run-command-file "/home/gabriel/Documents/Simics/simics-6.0.185/../simics-training-6.0.pre37/targets/workshop-02/007-prep-system-benchmarking.simics"

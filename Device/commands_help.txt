@@ -1,8 +1,0 @@
-// Create project
-/home/rubsalas/Documents/Simics/intel-simics-package-manager-1.7.5/simics-6.0.169/bin/project-setup
-// Add model device to Simics
-/home/rubsalas/Documents/Simics/intel-simics-package-manager-1.7.5/simics-6.0.169/bin/project-setup --device image-capturing-device --ignore-existing-files
-// Make device
-make
-// Run .simics @ /targets
-simics targets/qsp-x86/icd.simics

@@ -84,5 +84,5 @@ targets/qsp-x86/qsp-server-core.simics MD5 41291c0cc247e3a5190a319c62354c1e
 targets/qsp-x86/qsp-modern-core.simics MD5 c1a783acf8e7d7804012ffde07ff0030
 targets/qsp-isim/qsp-isim-clear-linux.simics MD5 01cec99704670b0f02e054ea88af0266
 compiler.mk MD5 4f657dd4bbc1e68e751f915ec669c5e7
-config.mk MD5 62bdfb3d942f7634bcd99952388e81d0
+config.mk MD5 1265c0dae0ea1bae465fbbc1747e8880
 GNUmakefile MD5 c6cf3ff56f04e5d365da6baf5ff544d2
